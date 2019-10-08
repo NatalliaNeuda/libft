@@ -6,7 +6,7 @@
 /*   By: nneuda <nneuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 20:32:26 by nneuda            #+#    #+#             */
-/*   Updated: 2019/10/06 22:37:13 by nneuda           ###   ########.fr       */
+/*   Updated: 2019/10/07 17:33:13 by nneuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,8 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_strrev(char *s);
 int					ft_numlen(int n);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+int					ft_isnegative(int n);
+int					ft_max(int *tab, unsigned int len);
+void				ft_print_bits(unsigned char octet);
 
 #endif

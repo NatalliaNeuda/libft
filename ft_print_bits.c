@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_print_bits.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nneuda <nneuda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/04 10:14:44 by nneuda            #+#    #+#             */
-/*   Updated: 2019/10/07 17:00:46 by nneuda           ###   ########.fr       */
+/*   Created: 2019/10/07 17:22:21 by nneuda            #+#    #+#             */
+/*   Updated: 2019/10/07 17:29:40 by nneuda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+void	ft_print_bits(unsigned char octet)
 {
-	int		div;
-	int		i;
-	char	*str;
-	int		size;
+	unsigned char div;
 
-	size = ft_isnegative(n) ? 2 : 1;
-	n = ft_isnegative(n) ? n : n * -1;
-	size += ft_numlen(n);
-	if (!(str = ft_strnew(size)))
-		return (NULL);
-	str[0] = ft_isnegative(n) ? '-' : '0';
-	div = n;
-	i = 0;
-	while (div < 0)
+	div = 0b10000000;
+	while (div != 0)
 	{
-		str[size - (1 + i)] = '0' + ((div % 10) * -1);
-		div = div / 10;
-		i++;
+		if (div & octet)
+			write(1, "1", 1);
+		else
+			write(1, "0", 1);
+		div >>= 1;
 	}
-	return (str);
 }
